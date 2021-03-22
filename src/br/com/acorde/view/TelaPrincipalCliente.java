@@ -30,6 +30,9 @@ public class TelaPrincipalCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jDesktopPaneCliente = new javax.swing.JDesktopPane();
+        lblUserNome1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanelCliente = new javax.swing.JPanel();
         lblUserNome = new javax.swing.JLabel();
         lblTreino = new javax.swing.JLabel();
@@ -57,17 +60,22 @@ public class TelaPrincipalCliente extends javax.swing.JFrame {
         setResizable(false);
 
         jDesktopPaneCliente.setBackground(new java.awt.Color(255, 255, 255));
+        jDesktopPaneCliente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jDesktopPaneClienteLayout = new javax.swing.GroupLayout(jDesktopPaneCliente);
-        jDesktopPaneCliente.setLayout(jDesktopPaneClienteLayout);
-        jDesktopPaneClienteLayout.setHorizontalGroup(
-            jDesktopPaneClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 509, Short.MAX_VALUE)
-        );
-        jDesktopPaneClienteLayout.setVerticalGroup(
-            jDesktopPaneClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 397, Short.MAX_VALUE)
-        );
+        lblUserNome1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblUserNome1.setForeground(new java.awt.Color(204, 204, 204));
+        lblUserNome1.setText("Nome");
+        jDesktopPaneCliente.add(lblUserNome1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 121, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel4.setText("Seja bem vindo(a),");
+        jDesktopPaneCliente.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 220, 50));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel5.setText(" 22 de Março de 2021");
+        jDesktopPaneCliente.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 150, 20));
 
         jPanelCliente.setBackground(new java.awt.Color(255, 255, 255));
         jPanelCliente.addInputMethodListener(new java.awt.event.InputMethodListener() {
@@ -89,7 +97,6 @@ public class TelaPrincipalCliente extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Dieta");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/prato.png"))); // NOI18N
 
         lblMensagem.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -156,7 +163,7 @@ public class TelaPrincipalCliente extends javax.swing.JFrame {
                 .addComponent(lblMensagemIcon)
                 .addGap(18, 18, 18)
                 .addComponent(lblMensagem)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         JMenuTabNutric.setText("Tabela Nutricional    ");
@@ -204,8 +211,9 @@ public class TelaPrincipalCliente extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jDesktopPaneCliente))
+                .addGap(18, 18, 18)
+                .addComponent(jDesktopPaneCliente)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,6 +277,8 @@ public class TelaPrincipalCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuBar jMenuBarCliente;
     private javax.swing.JMenu jMenuExercicio;
     private javax.swing.JMenu jMenuGastoCaloria;
@@ -286,5 +296,6 @@ public class TelaPrincipalCliente extends javax.swing.JFrame {
     private javax.swing.JLabel lblTreino;
     private javax.swing.JLabel lblTreinoImagem;
     public static javax.swing.JLabel lblUserNome;
+    public static javax.swing.JLabel lblUserNome1;
     // End of variables declaration//GEN-END:variables
 }
