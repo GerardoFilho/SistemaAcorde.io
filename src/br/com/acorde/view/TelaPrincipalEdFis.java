@@ -39,11 +39,16 @@ public class TelaPrincipalEdFis extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelEdFis = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        lblNomeEdFis1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanelEdFisLateral = new javax.swing.JPanel();
         lblNomeEdFis = new javax.swing.JLabel();
         lblIconUser = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        lblTreinoImagem = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuExercicio = new javax.swing.JMenu();
         jMenuItemExercAer = new javax.swing.JMenuItem();
@@ -59,16 +64,19 @@ public class TelaPrincipalEdFis extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(741, 400));
         setResizable(false);
 
-        javax.swing.GroupLayout jPanelEdFisLayout = new javax.swing.GroupLayout(jPanelEdFis);
-        jPanelEdFis.setLayout(jPanelEdFisLayout);
-        jPanelEdFisLayout.setHorizontalGroup(
-            jPanelEdFisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 542, Short.MAX_VALUE)
-        );
-        jPanelEdFisLayout.setVerticalGroup(
-            jPanelEdFisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        jPanelEdFis.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel3.setText("Seja bem vindo(a),");
+        jPanelEdFis.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 220, 30));
+
+        lblNomeEdFis1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblNomeEdFis1.setText("Nome");
+        jPanelEdFis.add(lblNomeEdFis1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setText(" 22 de Março de 2021");
+        jPanelEdFis.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 150, 20));
 
         jPanelEdFisLateral.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -83,6 +91,11 @@ public class TelaPrincipalEdFis extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Mensagem");
 
+        lblTreinoImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/treino.png"))); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setText("Acompanhamento");
+
         javax.swing.GroupLayout jPanelEdFisLateralLayout = new javax.swing.GroupLayout(jPanelEdFisLateral);
         jPanelEdFisLateral.setLayout(jPanelEdFisLateralLayout);
         jPanelEdFisLateralLayout.setHorizontalGroup(
@@ -96,9 +109,20 @@ public class TelaPrincipalEdFis extends javax.swing.JFrame {
                             .addComponent(lblIconUser)
                             .addComponent(jLabel1))
                         .addGap(9, 9, 9)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblNomeEdFis, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGroup(jPanelEdFisLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelEdFisLateralLayout.createSequentialGroup()
+                        .addGroup(jPanelEdFisLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelEdFisLateralLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblNomeEdFis, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelEdFisLateralLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel4)))
+                        .addGap(0, 21, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEdFisLateralLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblTreinoImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanelEdFisLateralLayout.setVerticalGroup(
             jPanelEdFisLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,10 +135,14 @@ public class TelaPrincipalEdFis extends javax.swing.JFrame {
                         .addGap(48, 48, 48)
                         .addComponent(lblNomeEdFis)))
                 .addGap(50, 50, 50)
-                .addComponent(jLabel1)
+                .addGroup(jPanelEdFisLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(lblTreinoImagem))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addContainerGap(207, Short.MAX_VALUE))
+                .addGroup(jPanelEdFisLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4))
+                .addContainerGap(209, Short.MAX_VALUE))
         );
 
         jMenuExercicio.setText("Exercício   ");
@@ -172,7 +200,7 @@ public class TelaPrincipalEdFis extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanelEdFisLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanelEdFis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelEdFis, javax.swing.GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,6 +277,9 @@ public class TelaPrincipalEdFis extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuExercicio;
     private javax.swing.JMenuItem jMenuItemCadastrarTreino;
@@ -262,5 +293,7 @@ public class TelaPrincipalEdFis extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelEdFisLateral;
     private javax.swing.JLabel lblIconUser;
     public static javax.swing.JLabel lblNomeEdFis;
+    public static javax.swing.JLabel lblNomeEdFis1;
+    private javax.swing.JLabel lblTreinoImagem;
     // End of variables declaration//GEN-END:variables
 }
