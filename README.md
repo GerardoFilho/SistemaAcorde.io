@@ -19,7 +19,14 @@
 <br>
 
 <p align="center">
-  <img alt="Frontend" src="/impressões/telaInicio.png" width="100%">
+  <table style="border: 0px;">
+     <td>
+  <img alt="Frontend" src="/impressões/Login.png" width="100%" style="float:right;">
+     </td>
+     <td>
+  <img alt="Frontend" src="/impressões/Cadastro.png" width="100%" style="float:left;">
+     </td>
+  </table>
 </p>
 
 ## Tecnologias
