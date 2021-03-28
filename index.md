@@ -20,7 +20,7 @@ O Acorde possui telas simples e intuitivas onde o usuário poderá aproveitar tu
 
 Nome | Email
 --- | --- 
-Gabriel uchoa de Vasconcelos | [gabriel.uchoa.vasconcelos@gmail.com](gabriel.uchoa.vasconcelos@gmail.com)
+Gabriel Uchoa de Vasconcelos | [gabriel.uchoa.vasconcelos@gmail.com](gabriel.uchoa.vasconcelos@gmail.com)
 Gerardo Magela dos Santos Filho | [Gerardo_filho95@hotmail.com](Gerardo_filho95@hotmail.com)
 João Victor Venâncio Soares | [joaodantebv@gmail.com](joaodantebv@gmail.com)
 Etienne Moraes | [etiennemrs00@gmail.com](etiennemrs00@gmail.com)
