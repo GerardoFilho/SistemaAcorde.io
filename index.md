@@ -12,7 +12,7 @@ O Acorde possui telas simples e intuitivas onde o usuário poderá aproveitar tu
 
 ![](https://i.imgur.com/hhQkSei.jpg)
 
-![](https://i.imgur.com/qe9zU27)
+![](https://i.imgur.com/qe9zU27.jpg)
 
 
 
