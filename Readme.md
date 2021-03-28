@@ -2,17 +2,8 @@
    <a href="https://github.com/GerardoFilho/SistemaAcorde">Acorde!</a>
 </h1>
 <p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/ianmateusES/bodybuilder.svg">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/ianmateusES/bodybuilder.svg">
-  
-  <a href="https://github.com/ianmateusES/bodybuilder/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/ianmateusES/bodybuilder.svg">
-  </a>
-
-  <a href="https://github.com/GerardoFilho/SistemaAcorde/issues">
-    <img alt="Repository issues" src="https://avatars.githubusercontent.com/u/37668322?v=4">
-  </a>
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/GerardoFilho/SistemaAcorde.svg">
 
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
 </p>
