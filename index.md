@@ -10,7 +10,7 @@ Além dos acompanhamentos, o sistema também oferece uma lista de alimentos, par
 
 O Acorde possui telas simples e intuitivas onde o usuário poderá aproveitar tudo que o sistema oferece, veja a seguir algumas telas do sistema. 
 
-![](https://i.imgur.com/hhQkSei)
+![](https://i.imgur.com/hhQkSei.jpg)
 
 ![](https://i.imgur.com/qe9zU27)
 
@@ -23,4 +23,4 @@ Nome | Email
 Gabriel uchoa de Vasconcelos | [gabriel.uchoa.vasconcelos@gmail.com](gabriel.uchoa.vasconcelos@gmail.com)
 Gerardo Magela dos Santos Filho | [Gerardo_filho95@hotmail.com](Gerardo_filho95@hotmail.com)
 João Victor Venâncio Soares | [joaodantebv@gmail.com](joaodantebv@gmail.com)
-Etienne Moraes | []()
+Etienne Moraes | [etiennemrs00@gmail.com](etiennemrs00@gmail.com)
