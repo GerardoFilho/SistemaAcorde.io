@@ -6,13 +6,9 @@ Pensando nisso, o sistema desktop "Acorde", oferece uma aplicação que permitir
 
 Além dos acompanhamentos, o sistema também oferece uma lista de alimentos, para que o cliente tenha uma noção básica daquilo que está consumindo. Ter a informação daquilo que você consome, se causa alergia ou não, é muito importante. 
 
-Entenda melhor nosso sistema no vídeo abaixo.
-
-[![Watch the video](https://i.imgur.com/OQwqkR6.png)](https://www.youtube.com/watch?v=flt8S7HRK_4)
-
 ## Sistema prático e intuitivo
 
-O EzHealth possui telas simples e intuitivas onde o usuário poderá aproveitar tudo que o sistema oferece, veja a seguir algumas telas do sistema. 
+O Acorde possui telas simples e intuitivas onde o usuário poderá aproveitar tudo que o sistema oferece, veja a seguir algumas telas do sistema. 
 
 ![](https://imgur.com/a/Q8qp5oV)
 
