@@ -10,9 +10,9 @@ Além dos acompanhamentos, o sistema também oferece uma lista de alimentos, par
 
 O Acorde possui telas simples e intuitivas onde o usuário poderá aproveitar tudo que o sistema oferece, veja a seguir algumas telas do sistema. 
 
-![https://imgur.com/hhQkSei](https://imgur.com/hhQkSei)
+![](https://imgur.com/hhQkSei)
 
-![https://imgur.com/qe9zU27](https://imgur.com/qe9zU27)
+![](https://imgur.com/qe9zU27)
 
 
 
