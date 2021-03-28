@@ -42,7 +42,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## Documentação do projeto
   
-  <a href="./.github/documents/">Súmario de documentação do projeto</a>
+  <a href="https://github.com/GerardoFilho/SistemaAcorde.io/blob/master/Acorde!%20Doc%20versao%202.0.pdf">Súmario de documentação do projeto</a>
   
 ## Equipe de desenvolvimento
 
