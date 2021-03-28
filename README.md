@@ -44,7 +44,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - João Victor
 - Gabriel Uchoa
 
-## 🤔 Como contribuir
+## Como contribuir
 
 - Faça um fork desse repositório;
 - Cria uma branch com a sua feature: `git checkout -b minha-feature`;
@@ -55,6 +55,6 @@ Depois que o merge da sua pull request for feito, você pode deletar a sua branc
 
 ## Licença
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
