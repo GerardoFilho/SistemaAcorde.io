@@ -1,55 +1,64 @@
-          ** RAW  TO  READ  or  DOWNLOAD **
+<h1 align="center">
+   <a href="https://github.com/GerardoFilho/SistemaAcorde">Acorde!</a>
+</h1>
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/ianmateusES/bodybuilder.svg">
 
-+=============================================================+
-|                     S  I  S  T  E  M  A                     |
-+=============================================================+
-|        d8888                              888          888  |
-|       d88888                              888          888  |
-|      d88P888                              888          888  |
-|     d88P 888  .d8888b .d88b.  888d888 .d88888  .d88b.  888  |
-|    d88P  888 d88P"   d88""88b 888P"  d88" 888 d8P  Y8b 888  |
-|   d88P   888 888     888  888 888    888  888 88888888 Y8P  |
-|  d8888888888 Y88b.   Y88..88P 888    Y88b 888 Y8b.      "   |
-| d88P     888  "Y8888P "Y88P"  888     "Y88888  "Y8888  888  |
-+---------------          ----------          ----------------+
-+    -------    ------------------------------    -------     +
-|                         S O B R E                           |
-|           Sistema destinado a usuários que queiram manter   |
-|  uma vida mais saudável por meio de uma dieta balanceada    |
-|  e exercícios apropriados para seu condicionamento passando |
-|  por supervisão profissional.                               |
-|                                                             |
-+===========+======================================+==========+                                                          
-            +--------------------------------------+
-            |            E Q U I P E               |
-            +--------------------------------------+
-            |     - Gerardo Magela   479246        |
-            |     - Gabriel Uchôa    433402        |
-            |     - João Victor V.S. 494034        |
-            |     - Etienne Lima     389228        |
-            +--------------------------------------+
-+===========+======================================+===========
-|   ----      ------------                             ----
-|       Tendo em vista a orientação à nutrição ideal para as práticas de exercícios físicos, o
-|   sistema desktop “Acorde!” foi elaborado para auxiliar àqueles que desejam manter uma dieta
-|   balanceada seguido de exercícios apropriados para seu condicionamento
-|
-|   ----      ------------                             ----
-|   o  Objetivo
-|             Nosso objetivo é apresentar um relatório que fornece uma visão ampla do sistema
-|         Acorde! e como ele irá auxiliar o usuário a manter uma vida mais saudável por meio de uma
-|         dieta balanceada seguido de exercícios apropriados para seu condicionamento, contando com
-|         recursos que vão desde montar uma dieta com refeições personalizada baseado nas calorias dos
-|         alimentos até informação sobre o nível de ingestão de água a exercícios aeróbicos e/ou
-|         anaeróbios. Algumas das features utilizadas no nosso futuro sistema serão baseadas nos sistemas
-|         que serão citados logo abaixo.
-|   o  Motivações
-|         ● Criar uma ponte entre profissionais da nutrição e profissionais da educação física.
-|         ● Informar os valores nutricionais dos produtos.
-|         ● Melhorar o desempenho/ganho de massa magra na academia.
-|         ● Fornecer uma plataforma única que contenha todos os dados necessários para uma
-|           boa dieta, com atividades físicas direcionadas.
-|         ● Auxiliar no controle de ingestão de água, baseado no valor recomendado do indivíduo.
-|
-|
-+==============================================================
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/ianmateusES/bodybuilder.svg">
+  
+  <a href="https://github.com/ianmateusES/bodybuilder/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/ianmateusES/bodybuilder.svg">
+  </a>
+
+  <a href="https://github.com/GerardoFilho/SistemaAcorde/issues">
+    <img alt="Repository issues" src="https://avatars.githubusercontent.com/u/37668322?v=4">
+  </a>
+
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+</p>
+
+<p align="center">
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-documentação-do-projeto">Documentação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-como-contribuir">Como contribuir</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-licença">Licença</a>
+</p>
+
+<br>
+
+<p align="center">
+  <img alt="Frontend" src="./docs/" width="100%">
+</p>
+
+## Tecnologias
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- [MySQL](https://www.mysql.com/)
+- [Java & Java Swing](https://www.oracle.com/br/java/technologies/)
+
+## Projeto
+
+
+
+## Documentação do projeto
+  
+  <a href="./.github/documents/">Súmario de documentação do projeto</a>
+  
+## Equipe de desenvolvimento
+
+- Gerardo Magela
+- Etienne Moraes
+- João Victor
+- Gabriel Uchoa
+
+## Contribuição
+
+
+
+## Licença
+
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+
+---
