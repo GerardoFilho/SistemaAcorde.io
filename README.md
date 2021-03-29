@@ -44,7 +44,11 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## Documentação do projeto
   
-  <a href="https://github.com/GerardoFilho/SistemaAcorde.io/blob/master/Acorde!%20Doc%20versao%202.0.pdf">- Relatório do projeto</a>
+  - [Relatório do projeto](https://github.com/GerardoFilho/SistemaAcorde.io/blob/master/Acorde!%20Doc%20versao%202.0.pdf)
+  - [Modelo de Feature](https://github.com/GerardoFilho/SistemaAcorde.io/blob/master/impressões/Acorde!%20-%20%20Modelo%20de%20features.pdf)
+  - [Diagramas e Modelo de classes](https://github.com/GerardoFilho/SistemaAcorde.io/blob/master/impressões/Acorde!%20-%20Diagramas%20e%20Modelo%20de%20Classes.pdf)
+  - [Requisitos Funcionais e Nao-Funcionais](https://github.com/GerardoFilho/SistemaAcorde.io/blob/master/impressões/Acorde!%20-%20Requisitos%20Funcionais%20e%20Nao-Funcionais.pdf)
+  - [Sistemas Relacionados](https://github.com/GerardoFilho/SistemaAcorde.io/blob/master/impressões/Acorde!%20-%20Sistemas%20relacionados.pdf)
   
 ## Equipe de desenvolvimento
 
