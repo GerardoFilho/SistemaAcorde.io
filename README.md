@@ -38,7 +38,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## Projeto
 
-- Nosso objetivo é apresentar um relatório que fornece uma visão ampla do sistema Acorde!  e como  ele irá auxiliar o usuário a manter uma vida mais saudável por meio de  uma dieta balanceada seguido de exercícios apropriados para seu condicionamento, contando com recursos que vão desde montar uma dieta com refeições personalizada baseado nas  calorias dos alimentos até informação sobre o nível de ingestão de água a exercícios aeróbicos e/ou anaeróbios. Algumas das features utilizadas no nosso futuro sistema serão baseadas nos sistemas que serão citados logo abaixo.
+- Nosso objetivo é apresentar um sistema e como ele irá auxiliar o usuário a manter uma vida mais saudável por meio de uma dieta balanceada seguido de exercícios apropriados para seu condicionamento, contando com recursos que vão desde montar uma dieta com refeições personalizada baseado nas calorias dos alimentos até informação sobre o nível de ingestão de água a exercícios aeróbicos e/ou anaeróbios. Algumas das features utilizadas no nosso futuro sistema serão baseadas nos sistemas que serão citados logo abaixo.
 
 
 
