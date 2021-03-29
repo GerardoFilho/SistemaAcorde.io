@@ -3,13 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Freetech/Documents/NetBeansProjects/JavaUdemySwing/src/br/com/acorde/view/TelaPrincipalNutricionista.java</file>
-            <file>file:/C:/Users/Freetech/Documents/NetBeansProjects/JavaUdemySwing/src/br/com/acorde/view/TelaPrincipalCliente.java</file>
-            <file>file:/C:/Users/Freetech/Documents/NetBeansProjects/JavaUdemySwing/src/br/com/acorde/view/TelaCadastro.java</file>
-            <file>file:/C:/Users/Freetech/Documents/NetBeansProjects/JavaUdemySwing/src/br/com/acorde/dao/ModuloConexao.java</file>
-            <file>file:/C:/Users/Freetech/Documents/NetBeansProjects/JavaUdemySwing/src/br/com/acorde/view/TelaLogin.java</file>
-            <file>file:/C:/Users/Freetech/Documents/NetBeansProjects/JavaUdemySwing/src/br/com/acorde/view/TelaPrincipalEdFis.java</file>
-            <file>file:/C:/Users/Freetech/Documents/NetBeansProjects/JavaUdemySwing/src/br/com/acorde/view/TelaCadastroTreino.java</file>
+            <file>file:/C:/Users/Freetech/Documents/NetBeansProjects/Acorde/src/br/com/acorde/view/TelaEdFisTreino.java</file>
+            <file>file:/C:/Users/Freetech/Documents/NetBeansProjects/Acorde/src/br/com/acorde/view/TelaNutriDietaCadastro.java</file>
+            <file>file:/C:/Users/Freetech/Documents/NetBeansProjects/Acorde/src/br/com/acorde/view/TelaEdFisTreinoCadastro.java</file>
         </group>
     </open-files>
 </project-private>
