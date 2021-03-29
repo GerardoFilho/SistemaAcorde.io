@@ -1,33 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.com.acorde.view;
 
 import br.com.acorde.dao.ModuloConexao;
-import java.sql.*;
+import static br.com.acorde.view.TelaEdFisPerfil.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Freetech
- */
-public class TelaPrincipalEdFis extends javax.swing.JFrame {
 
+public class TelaPrincipalEdFis extends javax.swing.JFrame {
+    
+     //variaveis do BD
+    Connection conexao = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
     /**
      * Creates new form TelaPrincipalEdFis
      */
-   
-   
-    
     public TelaPrincipalEdFis() {
         initComponents();
-       
+        conexao = ModuloConexao.conexaoBanco();
     }
-    
-      
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,207 +34,287 @@ public class TelaPrincipalEdFis extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelEdFis = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        lblNomeEdFis1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jPanelEdFisLateral = new javax.swing.JPanel();
-        lblNomeEdFis = new javax.swing.JLabel();
-        lblIconUser = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        lblNomeEdFis = new javax.swing.JLabel();
+        lblData = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        lblTreinoImagem = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenuExercicio = new javax.swing.JMenu();
-        jMenuItemExercAer = new javax.swing.JMenuItem();
-        jMenuItemExercAnaer = new javax.swing.JMenuItem();
-        jMenuTreino = new javax.swing.JMenu();
-        jMenuItemCadastrarTreino = new javax.swing.JMenuItem();
-        jMenuItemConsultarTreino = new javax.swing.JMenuItem();
-        jMenuItemExcluirTreino = new javax.swing.JMenuItem();
-        jMenuSair = new javax.swing.JMenu();
+        lblPerfilEdFis = new javax.swing.JLabel();
+        lblEdFisTreino = new javax.swing.JLabel();
+        lblEdFisExercicio = new javax.swing.JLabel();
+        lblEdFisMsg = new javax.swing.JLabel();
+        lblEdFisSair = new javax.swing.JLabel();
+        jPanelAreaEdFis = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Seja bem-vindo(a) ao <Acorde!>");
-        setPreferredSize(new java.awt.Dimension(741, 400));
+        setTitle("Bem vindo(a) ao <Acorde!>");
+        setMinimumSize(new java.awt.Dimension(957, 650));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
-        jPanelEdFis.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setMinimumSize(new java.awt.Dimension(947, 650));
+        jPanel3.setPreferredSize(new java.awt.Dimension(947, 650));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel3.setText("Seja bem vindo(a),");
-        jPanelEdFis.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 220, 30));
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1000, 131));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 131));
 
-        lblNomeEdFis1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblNomeEdFis1.setText("Nome");
-        jPanelEdFis.add(lblNomeEdFis1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("Seja bem vindo(a) ao <Acorde!>, ");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText(" 22 de Março de 2021");
-        jPanelEdFis.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 150, 20));
-
-        jPanelEdFisLateral.setBackground(new java.awt.Color(255, 255, 255));
-
-        lblNomeEdFis.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblNomeEdFis.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblNomeEdFis.setText("Nome");
 
-        lblIconUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/user.png"))); // NOI18N
+        lblData.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblData.setText("Terça, 23 de Março de 2021");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/msg.png"))); // NOI18N
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(228, 228, 228)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblNomeEdFis))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(298, 298, 298)
+                        .addComponent(lblData, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(lblNomeEdFis))
+                .addGap(18, 18, 18)
+                .addComponent(lblData)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("Mensagem");
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel2.setMinimumSize(new java.awt.Dimension(237, 513));
+        jPanel2.setPreferredSize(new java.awt.Dimension(237, 513));
 
-        lblTreinoImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/treino.png"))); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setText("Menu");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setText("Acompanhamento");
+        lblPerfilEdFis.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblPerfilEdFis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/user.png"))); // NOI18N
+        lblPerfilEdFis.setText("     Perfil");
+        lblPerfilEdFis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPerfilEdFisMouseClicked(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanelEdFisLateralLayout = new javax.swing.GroupLayout(jPanelEdFisLateral);
-        jPanelEdFisLateral.setLayout(jPanelEdFisLateralLayout);
-        jPanelEdFisLateralLayout.setHorizontalGroup(
-            jPanelEdFisLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelEdFisLateralLayout.createSequentialGroup()
+        lblEdFisTreino.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblEdFisTreino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/treino.png"))); // NOI18N
+        lblEdFisTreino.setText("    Treino");
+        lblEdFisTreino.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEdFisTreinoMouseClicked(evt);
+            }
+        });
+
+        lblEdFisExercicio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblEdFisExercicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/exercicio.png"))); // NOI18N
+        lblEdFisExercicio.setText("    Exercício");
+        lblEdFisExercicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEdFisExercicioMouseClicked(evt);
+            }
+        });
+
+        lblEdFisMsg.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblEdFisMsg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/msg.png"))); // NOI18N
+        lblEdFisMsg.setText("    Mensagem");
+        lblEdFisMsg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEdFisMsgMouseClicked(evt);
+            }
+        });
+
+        lblEdFisSair.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblEdFisSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/sair.png"))); // NOI18N
+        lblEdFisSair.setText("    Sair");
+        lblEdFisSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblEdFisSairMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblPerfilEdFis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblEdFisTreino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(81, 81, 81))
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelEdFisLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addGroup(jPanelEdFisLateralLayout.createSequentialGroup()
-                        .addGroup(jPanelEdFisLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblIconUser)
-                            .addComponent(jLabel1))
-                        .addGap(9, 9, 9)))
-                .addGroup(jPanelEdFisLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelEdFisLateralLayout.createSequentialGroup()
-                        .addGroup(jPanelEdFisLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelEdFisLateralLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblNomeEdFis, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelEdFisLateralLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel4)))
-                        .addGap(0, 21, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEdFisLateralLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblTreinoImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblEdFisExercicio)
+                    .addComponent(lblEdFisMsg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblEdFisSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(30, 30, 30)
+                .addComponent(lblPerfilEdFis)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblEdFisTreino)
+                .addGap(13, 13, 13)
+                .addComponent(lblEdFisExercicio)
+                .addGap(18, 18, 18)
+                .addComponent(lblEdFisMsg)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblEdFisSair)
+                .addContainerGap(150, Short.MAX_VALUE))
+        );
+
+        jPanelAreaEdFis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelAreaEdFis.setMinimumSize(new java.awt.Dimension(723, 513));
+        jPanelAreaEdFis.setPreferredSize(new java.awt.Dimension(723, 513));
+
+        javax.swing.GroupLayout jPanelAreaEdFisLayout = new javax.swing.GroupLayout(jPanelAreaEdFis);
+        jPanelAreaEdFis.setLayout(jPanelAreaEdFisLayout);
+        jPanelAreaEdFisLayout.setHorizontalGroup(
+            jPanelAreaEdFisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 723, Short.MAX_VALUE)
+        );
+        jPanelAreaEdFisLayout.setVerticalGroup(
+            jPanelAreaEdFisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanelAreaEdFis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 34, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jPanelEdFisLateralLayout.setVerticalGroup(
-            jPanelEdFisLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelEdFisLateralLayout.createSequentialGroup()
-                .addGroup(jPanelEdFisLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelEdFisLateralLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(lblIconUser))
-                    .addGroup(jPanelEdFisLateralLayout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(lblNomeEdFis)))
-                .addGap(50, 50, 50)
-                .addGroup(jPanelEdFisLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(lblTreinoImagem))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelEdFisLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4))
-                .addContainerGap(209, Short.MAX_VALUE))
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelAreaEdFis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
-
-        jMenuExercicio.setText("Exercício   ");
-
-        jMenuItemExercAer.setText("Aeróbicos");
-        jMenuItemExercAer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemExercAerActionPerformed(evt);
-            }
-        });
-        jMenuExercicio.add(jMenuItemExercAer);
-
-        jMenuItemExercAnaer.setText("Anaeróbico");
-        jMenuExercicio.add(jMenuItemExercAnaer);
-
-        jMenuBar1.add(jMenuExercicio);
-
-        jMenuTreino.setText("Treino   ");
-
-        jMenuItemCadastrarTreino.setText("Cadastrar ");
-        jMenuItemCadastrarTreino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemCadastrarTreinoActionPerformed(evt);
-            }
-        });
-        jMenuTreino.add(jMenuItemCadastrarTreino);
-
-        jMenuItemConsultarTreino.setText("Consultar");
-        jMenuItemConsultarTreino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemConsultarTreinoActionPerformed(evt);
-            }
-        });
-        jMenuTreino.add(jMenuItemConsultarTreino);
-
-        jMenuItemExcluirTreino.setText("Excluir");
-        jMenuTreino.add(jMenuItemExcluirTreino);
-
-        jMenuBar1.add(jMenuTreino);
-
-        jMenuSair.setText("Sair   ");
-        jMenuSair.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuSairMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(jMenuSair);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelEdFisLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanelEdFis, javax.swing.GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 957, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelEdFisLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelEdFis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(785, 471));
+        setSize(new java.awt.Dimension(973, 689));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItemCadastrarTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastrarTreinoActionPerformed
-        //abrir o form para cadastrar teino
-        TelaCadastroTreino telaCadastroTreino = new TelaCadastroTreino();
-        telaCadastroTreino.setVisible(true);
-        jPanelEdFis.add(telaCadastroTreino);
-    }//GEN-LAST:event_jMenuItemCadastrarTreinoActionPerformed
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        //traz a data do sistema
+        Date data = new Date();
+        DateFormat formatado = DateFormat.getDateInstance(DateFormat.FULL);
+        lblData.setText(formatado.format(data));
+    }//GEN-LAST:event_formWindowActivated
 
-    private void jMenuItemConsultarTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemConsultarTreinoActionPerformed
-        //abrir o form para consultar treino
-        TelaConsultaTreino telaConsultaTreino = new TelaConsultaTreino();
-        telaConsultaTreino.setVisible(true);
-        jPanelEdFis.add(telaConsultaTreino);
-    }//GEN-LAST:event_jMenuItemConsultarTreinoActionPerformed
+    private void lblPerfilEdFisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPerfilEdFisMouseClicked
+        TelaEdFisPerfil perfilEdFis = new TelaEdFisPerfil();
+        perfilEdFis.setVisible(true);
+        jPanelAreaEdFis.add(perfilEdFis);
+        
+        //ao clicar no botao perfil os dados que o cliente cadastrou vai ser mostrado no tela de Perfil
+        //tazer conexao com o bd (ok)
+        //(((((PROBLEMA)))) SÓ exibe o msm dado sempre
+          String sql = "select * from Educador_Fisico";
+          try{
+              pst = conexao.prepareStatement(sql);
+              //pst.setString(1, txtIdCliente.getText());
+              rs = pst.executeQuery();
+              // rs.last() pega a ultima linha que foi colocada no bd, entao vai ter que fazer cadastro e login
+              //para mostrar essas duas funcionalidades e pegar o ultimo que foi cadastrado
+              if(rs.last()){
+                  txtIdEdFis.setText(rs.getString(1));
+                  txtNomeEdFis.setText(rs.getString(2));
+                  txtEmailEdFis.setText(rs.getString(3));
+                  jpfSenhaEdFis.setText(rs.getString(4));
+                  txtSobrenomeEdFis.setText(rs.getString(5));
+                  ftxtDataEdFis.setText(rs.getString(6));
+                  ftxCREF.setText(rs.getString(7));
+                  jtxTelefoneEdFis.setText(rs.getString(8));
+              } 
+          }catch(Exception e){
+              JOptionPane.showMessageDialog(null, e);
+              e.printStackTrace();
+          }
+    }//GEN-LAST:event_lblPerfilEdFisMouseClicked
 
-    private void jMenuItemExercAerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemExercAerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemExercAerActionPerformed
+    private void lblEdFisTreinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEdFisTreinoMouseClicked
+        TelaEdFisTreino edFisTreino = new TelaEdFisTreino();
+        edFisTreino.setVisible(true);
+        jPanelAreaEdFis.add(edFisTreino);
+    }//GEN-LAST:event_lblEdFisTreinoMouseClicked
 
-    private void jMenuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSairMouseClicked
-        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?", "Atenção", JOptionPane.YES_NO_OPTION);
+    private void lblEdFisExercicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEdFisExercicioMouseClicked
+        TelaEdFisExercicio edFisExercicio = new TelaEdFisExercicio();
+        edFisExercicio.setVisible(true);
+        jPanelAreaEdFis.add(edFisExercicio);
+    }//GEN-LAST:event_lblEdFisExercicioMouseClicked
+
+    private void lblEdFisMsgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEdFisMsgMouseClicked
+        TelaEdFisMensagem edFisMsg = new  TelaEdFisMensagem();
+       edFisMsg.setVisible(true);
+        jPanelAreaEdFis.add(edFisMsg);
+    }//GEN-LAST:event_lblEdFisMsgMouseClicked
+
+    private void lblEdFisSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEdFisSairMouseClicked
+       int sair = JOptionPane.showConfirmDialog(null, "Deseja sair?", "Atenção", JOptionPane.YES_NO_OPTION);
         if(sair == JOptionPane.YES_OPTION){
-            System.exit(0);
+           System.exit(0);
         }
-    }//GEN-LAST:event_jMenuSairMouseClicked
+    }//GEN-LAST:event_lblEdFisSairMouseClicked
 
-    
-    
     /**
      * @param args the command line arguments
      */
@@ -277,23 +353,16 @@ public class TelaPrincipalEdFis extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenu jMenuExercicio;
-    private javax.swing.JMenuItem jMenuItemCadastrarTreino;
-    private javax.swing.JMenuItem jMenuItemConsultarTreino;
-    private javax.swing.JMenuItem jMenuItemExcluirTreino;
-    private javax.swing.JMenuItem jMenuItemExercAer;
-    private javax.swing.JMenuItem jMenuItemExercAnaer;
-    private javax.swing.JMenu jMenuSair;
-    private javax.swing.JMenu jMenuTreino;
-    private javax.swing.JPanel jPanelEdFis;
-    private javax.swing.JPanel jPanelEdFisLateral;
-    private javax.swing.JLabel lblIconUser;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanelAreaEdFis;
+    private javax.swing.JLabel lblData;
+    private javax.swing.JLabel lblEdFisExercicio;
+    private javax.swing.JLabel lblEdFisMsg;
+    private javax.swing.JLabel lblEdFisSair;
+    private javax.swing.JLabel lblEdFisTreino;
     public static javax.swing.JLabel lblNomeEdFis;
-    public static javax.swing.JLabel lblNomeEdFis1;
-    private javax.swing.JLabel lblTreinoImagem;
+    private javax.swing.JLabel lblPerfilEdFis;
     // End of variables declaration//GEN-END:variables
 }

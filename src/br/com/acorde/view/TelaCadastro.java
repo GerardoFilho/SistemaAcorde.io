@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.com.acorde.view;
 
 import br.com.acorde.dao.ModuloConexao;
@@ -11,24 +7,29 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
+
 public class TelaCadastro extends javax.swing.JFrame {
     
+     //variaveis do BD
     Connection conexao = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
-    
+
     private void adicionarUsuario(){
         if(jComboBoxPerfilCadastro.getSelectedItem().equals("Cliente")){
-             String sql = "insert into Cliente (nome, email, senha ) values (?,?,?)";
+             String sql = "insert into Cliente (nome, email, senha, Sobrenome, DataNascimento, Telefone ) values (?,?,?,?,?,?)";
              try{
                   pst = conexao.prepareStatement(sql);
-                  pst.setString(1, jTextFieldNomeCadastro.getText());
-                  pst.setString(2, jTextFieldEmailCadastro.getText());
-                  pst.setString(3, jPasswordFieldSenhaCadrasto.getText());
+                  pst.setString(1, txtNomeCliente.getText());
+                  pst.setString(2, txtEmailCliente.getText());
+                  pst.setString(3, jpfSenhaCliente.getText());
+                  pst.setString(4, txtSobrenomeCliente.getText());
+                  pst.setString(5, ftxtDataCliente.getText());
+                  pst.setString(6, jtxTelefoneCliente.getText());
                   
                   //validando se os campos obrigatorios foram preenchidos
-                  if(jTextFieldNomeCadastro.getText().isEmpty() || jTextFieldEmailCadastro.getText().isEmpty()
-                     || jPasswordFieldSenhaCadrasto.getText().isEmpty()){
+                  if( txtNomeCliente.getText().isEmpty() || txtEmailCliente.getText().isEmpty()
+                     || jpfSenhaCliente.getText().isEmpty()){
                        JOptionPane.showMessageDialog(null, "Preencha os campos obrigatorios");
                   }else{
                       //a linha abaixo atualiza a tbela com o dados que pegou do form e coloca o resultado dentro da var
@@ -37,9 +38,9 @@ public class TelaCadastro extends javax.swing.JFrame {
                 //se colocar pst.executeUpdate() > 0 ele vai executar duas vezes a insercao na tabela
                 if( adicionado > 0){
                     JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso");
-                    jTextFieldNomeCadastro.setText(null);
-                    jTextFieldEmailCadastro.setText(null);
-                    jPasswordFieldSenhaCadrasto.setText(null);
+                    txtNomeCliente.setText(null);
+                    txtEmailCliente.setText(null);
+                    jpfSenhaCliente.setText(null);
                     TelaLogin.main(null);
                     dispose();
                     }
@@ -49,16 +50,19 @@ public class TelaCadastro extends javax.swing.JFrame {
                   e.printStackTrace();
              }
         }else if(jComboBoxPerfilCadastro.getSelectedItem().equals("Educador Físico")){
-            String sql = "insert into Educador_Fisico (nome, email, senha ) values (?,?,?)";
+            String sql = "insert into Educador_Fisico (nome, email, senha, Sobrenome, DataNascimento, Telefone ) values (?,?,?,?,?,?)";
              try{
                   pst = conexao.prepareStatement(sql);
-                  pst.setString(1, jTextFieldNomeCadastro.getText());
-                  pst.setString(2, jTextFieldEmailCadastro.getText());
-                  pst.setString(3, jPasswordFieldSenhaCadrasto.getText());
+                  pst.setString(1, txtNomeCliente.getText());
+                  pst.setString(2, txtEmailCliente.getText());
+                  pst.setString(3, jpfSenhaCliente.getText());
+                  pst.setString(4, txtSobrenomeCliente.getText());
+                  pst.setString(5, ftxtDataCliente.getText());
+                  pst.setString(6, jtxTelefoneCliente.getText());
                   
                   //validando se os campos obrigatorios foram preenchidos
-                  if(jTextFieldNomeCadastro.getText().isEmpty() || jTextFieldEmailCadastro.getText().isEmpty()
-                     || jPasswordFieldSenhaCadrasto.getText().isEmpty()){
+                  if(txtNomeCliente.getText().isEmpty() || txtEmailCliente.getText().isEmpty()
+                     || jpfSenhaCliente.getText().isEmpty()){
                        JOptionPane.showMessageDialog(null, "Preencha os campos obrigatorios");
                   }else{
                       //a linha abaixo atualiza a tbela com o dados que pegou do form e coloca o resultado dentro da var
@@ -67,9 +71,9 @@ public class TelaCadastro extends javax.swing.JFrame {
                 //se colocar pst.executeUpdate() > 0 ele vai executar duas vezes a insercao na tabela
                 if( adicionado > 0){
                     JOptionPane.showMessageDialog(null, "Profissional cadastrado com sucesso");
-                    jTextFieldNomeCadastro.setText(null);
-                    jTextFieldEmailCadastro.setText(null);
-                    jPasswordFieldSenhaCadrasto.setText(null);
+                    txtNomeCliente.setText(null);
+                    txtEmailCliente.setText(null);
+                    jpfSenhaCliente.setText(null);
                     TelaLogin.main(null);
                     dispose();
                     }
@@ -79,16 +83,19 @@ public class TelaCadastro extends javax.swing.JFrame {
                   e.printStackTrace();
              }
         }else{
-            String sql = "insert into Nutricionista (nome, email, senha ) values (?,?,?)";
+            String sql = "insert into Nutricionista (nome, email, senha, Sobrenome, DataNascimento, Telefone) values (?,?,?,?,?,?)";
              try{
                   pst = conexao.prepareStatement(sql);
-                  pst.setString(1, jTextFieldNomeCadastro.getText());
-                  pst.setString(2, jTextFieldEmailCadastro.getText());
-                  pst.setString(3, jPasswordFieldSenhaCadrasto.getText());
+                  pst.setString(1, txtNomeCliente.getText());
+                  pst.setString(2, txtEmailCliente.getText());
+                  pst.setString(3, jpfSenhaCliente.getText());
+                  pst.setString(4, txtSobrenomeCliente.getText());
+                  pst.setString(5, ftxtDataCliente.getText());
+                  pst.setString(6, jtxTelefoneCliente.getText());
                   
                   //validando se os campos obrigatorios foram preenchidos
-                  if(jTextFieldNomeCadastro.getText().isEmpty() || jTextFieldEmailCadastro.getText().isEmpty()
-                     || jPasswordFieldSenhaCadrasto.getText().isEmpty()){
+                  if(txtNomeCliente.getText().isEmpty() || txtEmailCliente.getText().isEmpty()
+                     || jpfSenhaCliente.getText().isEmpty()){
                        JOptionPane.showMessageDialog(null, "Preencha os campos obrigatorios");
                   }else{
                       //a linha abaixo atualiza a tbela com o dados que pegou do form e coloca o resultado dentro da var
@@ -97,9 +104,9 @@ public class TelaCadastro extends javax.swing.JFrame {
                 //se colocar pst.executeUpdate() > 0 ele vai executar duas vezes a insercao na tabela
                 if( adicionado > 0){
                     JOptionPane.showMessageDialog(null, "Profissional cadastrado com sucesso");
-                    jTextFieldNomeCadastro.setText(null);
-                    jTextFieldEmailCadastro.setText(null);
-                    jPasswordFieldSenhaCadrasto.setText(null);
+                    txtNomeCliente.setText(null);
+                    txtEmailCliente.setText(null);
+                    jpfSenhaCliente.setText(null);
                     TelaLogin.main(null);
                     dispose();
                     }
@@ -111,13 +118,12 @@ public class TelaCadastro extends javax.swing.JFrame {
         }
         
     }
-
     /**
-     * Creates new form TelaCadastro1
+     * Creates new form TelaCadastro
      */
     public TelaCadastro() {
         initComponents();
-         conexao = ModuloConexao.conexaoBanco();
+        conexao = ModuloConexao.conexaoBanco();
     }
 
     /**
@@ -129,106 +135,249 @@ public class TelaCadastro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblAcorde = new javax.swing.JLabel();
-        lblNomeCadastro = new javax.swing.JLabel();
-        jTextFieldNomeCadastro = new javax.swing.JTextField();
-        lblEmailCadastro = new javax.swing.JLabel();
-        jTextFieldEmailCadastro = new javax.swing.JTextField();
-        lblSenhaCadastro = new javax.swing.JLabel();
-        jPasswordFieldSenhaCadrasto = new javax.swing.JPasswordField();
-        lblPerfilCadastro = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel45 = new javax.swing.JLabel();
+        txtNomeCliente = new javax.swing.JTextField();
+        ftxtDataCliente = new javax.swing.JFormattedTextField();
+        txtSobrenomeCliente = new javax.swing.JTextField();
+        jLabel47 = new javax.swing.JLabel();
+        jtxTelefoneCliente = new javax.swing.JFormattedTextField();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        txtEmailCliente = new javax.swing.JTextField();
+        jpfSenhaCliente = new javax.swing.JPasswordField();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        btnCadastrar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         jComboBoxPerfilCadastro = new javax.swing.JComboBox<>();
-        jButtonVolta = new javax.swing.JButton();
-        jButtonCadastro1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastre-se no <Acorde!>");
-        setResizable(false);
-        getContentPane().setLayout(null);
 
-        lblAcorde.setFont(new java.awt.Font("MV Boli", 1, 24)); // NOI18N
-        lblAcorde.setText("<Acorde!>");
-        getContentPane().add(lblAcorde);
-        lblAcorde.setBounds(130, 10, 130, 40);
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setMinimumSize(new java.awt.Dimension(702, 514));
 
-        lblNomeCadastro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblNomeCadastro.setText("NOME:");
-        getContentPane().add(lblNomeCadastro);
-        lblNomeCadastro.setBounds(30, 70, 40, 14);
+        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel45.setText("*Nome:");
 
-        jTextFieldNomeCadastro.addActionListener(new java.awt.event.ActionListener() {
+        txtNomeCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNomeCliente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
+
+        ftxtDataCliente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
+        try {
+            ftxtDataCliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        ftxtDataCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        txtSobrenomeCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtSobrenomeCliente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
+
+        jLabel47.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel47.setText("Telefone:");
+
+        jtxTelefoneCliente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
+        try {
+            jtxTelefoneCliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#.####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jtxTelefoneCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel48.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel48.setText("*Email:");
+
+        jLabel49.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel49.setText("*Senha:");
+
+        jLabel51.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel51.setText("Sobrenome:");
+
+        jLabel52.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel52.setText("Data de Nascimento:");
+
+        txtEmailCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtEmailCliente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
+
+        jpfSenhaCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jpfSenhaCliente.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
+
+        jPanel10.setBackground(new java.awt.Color(153, 153, 153));
+
+        jLabel55.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel55.setText("Cadastro");
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel55)
+                .addGap(293, 293, 293))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel55)
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+
+        jLabel46.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel46.setText("*Campos Obrigatórios");
+
+        btnCadastrar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNomeCadastroActionPerformed(evt);
+                btnCadastrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldNomeCadastro);
-        jTextFieldNomeCadastro.setBounds(90, 60, 160, 30);
 
-        lblEmailCadastro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblEmailCadastro.setText("EMAIL:");
-        getContentPane().add(lblEmailCadastro);
-        lblEmailCadastro.setBounds(30, 120, 40, 14);
-        getContentPane().add(jTextFieldEmailCadastro);
-        jTextFieldEmailCadastro.setBounds(90, 110, 160, 30);
+        btnCancelar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
-        lblSenhaCadastro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblSenhaCadastro.setText("SENHA:");
-        getContentPane().add(lblSenhaCadastro);
-        lblSenhaCadastro.setBounds(30, 170, 50, 14);
-        getContentPane().add(jPasswordFieldSenhaCadrasto);
-        jPasswordFieldSenhaCadrasto.setBounds(90, 160, 160, 30);
-
-        lblPerfilCadastro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblPerfilCadastro.setText("PERFIL:");
-        getContentPane().add(lblPerfilCadastro);
-        lblPerfilCadastro.setBounds(30, 220, 50, 14);
-
+        jComboBoxPerfilCadastro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jComboBoxPerfilCadastro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente", "Educador Físico", "Nutricionista" }));
-        getContentPane().add(jComboBoxPerfilCadastro);
-        jComboBoxPerfilCadastro.setBounds(90, 210, 160, 30);
 
-        jButtonVolta.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonVolta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonVolta.setText("Voltar");
-        jButtonVolta.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        jButtonVolta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonVolta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVoltaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonVolta);
-        jButtonVolta.setBounds(190, 260, 120, 30);
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("*Perfil:");
 
-        jButtonCadastro1.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonCadastro1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonCadastro1.setText("Cadastrar");
-        jButtonCadastro1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
-        jButtonCadastro1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonCadastro1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCadastro1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonCadastro1);
-        jButtonCadastro1.setBounds(40, 260, 110, 30);
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel45)
+                        .addGap(197, 197, 197)
+                        .addComponent(jLabel51)
+                        .addGap(140, 140, 140)
+                        .addComponent(jLabel47))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68)
+                        .addComponent(txtSobrenomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(jtxTelefoneCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel52)
+                                .addGap(103, 103, 103)
+                                .addComponent(jLabel48))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(ftxtDataCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(68, 68, 68)
+                                .addComponent(txtEmailCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBoxPerfilCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(53, 53, 53)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel46)
+                            .addComponent(jpfSenhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel49))))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(216, 216, 216)
+                .addComponent(btnCadastrar)
+                .addGap(70, 70, 70)
+                .addComponent(btnCancelar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
-        setSize(new java.awt.Dimension(389, 368));
+        jPanel9Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCadastrar, btnCancelar});
+
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel45)
+                            .addComponent(jLabel51))))
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSobrenomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jtxTelefoneCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel52)
+                        .addComponent(jLabel48))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabel49)))
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(ftxtDataCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jpfSenhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEmailCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jComboBoxPerfilCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel46))
+                .addGap(54, 54, 54)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCadastrar)
+                    .addComponent(btnCancelar))
+                .addGap(170, 170, 170))
+        );
+
+        jPanel9Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCadastrar, btnCancelar});
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        setSize(new java.awt.Dimension(688, 413));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldNomeCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeCadastroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNomeCadastroActionPerformed
-
-    private void jButtonVoltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltaActionPerformed
-            TelaLogin.main(null);
-            dispose();
-    }//GEN-LAST:event_jButtonVoltaActionPerformed
-
-    private void jButtonCadastro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastro1ActionPerformed
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         adicionarUsuario();
-    }//GEN-LAST:event_jButtonCadastro1ActionPerformed
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,7 +405,6 @@ public class TelaCadastro extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -267,16 +415,25 @@ public class TelaCadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCadastro1;
-    private javax.swing.JButton jButtonVolta;
+    private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JFormattedTextField ftxtDataCliente;
     private javax.swing.JComboBox<String> jComboBoxPerfilCadastro;
-    private javax.swing.JPasswordField jPasswordFieldSenhaCadrasto;
-    private javax.swing.JTextField jTextFieldEmailCadastro;
-    private javax.swing.JTextField jTextFieldNomeCadastro;
-    private javax.swing.JLabel lblAcorde;
-    private javax.swing.JLabel lblEmailCadastro;
-    private javax.swing.JLabel lblNomeCadastro;
-    private javax.swing.JLabel lblPerfilCadastro;
-    private javax.swing.JLabel lblSenhaCadastro;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JPasswordField jpfSenhaCliente;
+    private javax.swing.JFormattedTextField jtxTelefoneCliente;
+    private javax.swing.JTextField txtEmailCliente;
+    private javax.swing.JTextField txtNomeCliente;
+    private javax.swing.JTextField txtSobrenomeCliente;
     // End of variables declaration//GEN-END:variables
 }

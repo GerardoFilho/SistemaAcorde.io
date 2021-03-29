@@ -1,23 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.com.acorde.view;
 
+import br.com.acorde.dao.ModuloConexao;
+import static br.com.acorde.view.TelaClientePerfil.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Freetech
- */
-public class TelaPrincipalCliente extends javax.swing.JFrame {
 
+public class TelaPrincipalCliente extends javax.swing.JFrame {
+    
+     //variaveis do BD
+    Connection conexao = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
     /**
      * Creates new form TelaPrincipalCliente
      */
     public TelaPrincipalCliente() {
         initComponents();
+        conexao = ModuloConexao.conexaoBanco();
     }
 
     /**
@@ -29,212 +37,339 @@ public class TelaPrincipalCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPaneCliente = new javax.swing.JDesktopPane();
-        lblUserNome1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jPanelCliente = new javax.swing.JPanel();
-        lblUserNome = new javax.swing.JLabel();
-        lblTreino = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        lblTreinoImagem = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        lblMensagem = new javax.swing.JLabel();
-        lblMensagemIcon = new javax.swing.JLabel();
-        lblIconUser = new javax.swing.JLabel();
-        jMenuBarCliente = new javax.swing.JMenuBar();
-        JMenuTabNutric = new javax.swing.JMenu();
-        jMenuExercicio = new javax.swing.JMenu();
-        jMenuItemExercAnaer = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuGastoCaloria = new javax.swing.JMenu();
-        jMenuProgDieta = new javax.swing.JMenu();
-        jMenuProfissionais = new javax.swing.JMenu();
-        jMenuItemEF = new javax.swing.JMenuItem();
-        jMenuItemNutricionista = new javax.swing.JMenuItem();
-        jMenuSair = new javax.swing.JMenu();
+        lblUserNome = new javax.swing.JLabel();
+        lblData = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        lblMenuPerfilCliente = new javax.swing.JLabel();
+        lblMenuDietaCliente = new javax.swing.JLabel();
+        lblMenuTreinoCliente = new javax.swing.JLabel();
+        lblMenuMensagemCliente = new javax.swing.JLabel();
+        lblMenuRelatorioCliente = new javax.swing.JLabel();
+        lblSair = new javax.swing.JLabel();
+        lblMenuAliementoCliente = new javax.swing.JLabel();
+        lblMenuProCliente = new javax.swing.JLabel();
+        jPanelAreaCliente = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Seja bem-vindo(a) ao <Acorde!>");
         setResizable(false);
-
-        jDesktopPaneCliente.setBackground(new java.awt.Color(255, 255, 255));
-        jDesktopPaneCliente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblUserNome1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblUserNome1.setForeground(new java.awt.Color(204, 204, 204));
-        lblUserNome1.setText("Nome");
-        jDesktopPaneCliente.add(lblUserNome1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 121, -1));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel4.setText("Seja bem vindo(a),");
-        jDesktopPaneCliente.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 220, 50));
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel5.setText(" 22 de Março de 2021");
-        jDesktopPaneCliente.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 150, 20));
-
-        jPanelCliente.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelCliente.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                jPanelClienteInputMethodTextChanged(evt);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
             }
         });
 
-        lblUserNome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("Seja bem vindo(a) ao <Acorde>, ");
+
+        lblUserNome.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblUserNome.setText("Nome");
 
-        lblTreino.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblTreino.setText("Treino");
+        lblData.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblData.setText("Terça, 23 de Março de 2021");
 
-        lblTreinoImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/treino.png"))); // NOI18N
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("Dieta");
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/prato.png"))); // NOI18N
-
-        lblMensagem.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblMensagem.setText("Mensagem");
-
-        lblMensagemIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/msg.png"))); // NOI18N
-
-        lblIconUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/user.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanelClienteLayout = new javax.swing.GroupLayout(jPanelCliente);
-        jPanelCliente.setLayout(jPanelClienteLayout);
-        jPanelClienteLayout.setHorizontalGroup(
-            jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelClienteLayout.createSequentialGroup()
-                .addGroup(jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelClienteLayout.createSequentialGroup()
-                        .addContainerGap()
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(245, 245, 245)
                         .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTreinoImagem)
-                            .addComponent(lblTreino, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMensagemIcon))
-                        .addGap(70, 70, 70)
-                        .addGroup(jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(jPanelClienteLayout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(jLabel2))))
-                    .addGroup(jPanelClienteLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelClienteLayout.createSequentialGroup()
-                                .addComponent(lblIconUser)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                                .addComponent(lblUserNome, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblMensagem))))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblUserNome))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(313, 313, 313)
+                        .addComponent(lblData, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(270, Short.MAX_VALUE))
         );
-        jPanelClienteLayout.setVerticalGroup(
-            jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelClienteLayout.createSequentialGroup()
-                .addGroup(jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelClienteLayout.createSequentialGroup()
-                        .addGap(159, 159, 159)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanelClienteLayout.createSequentialGroup()
-                        .addGroup(jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelClienteLayout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(lblIconUser))
-                            .addGroup(jPanelClienteLayout.createSequentialGroup()
-                                .addGap(52, 52, 52)
-                                .addComponent(lblUserNome)))
-                        .addGap(50, 50, 50)
-                        .addGroup(jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(lblTreinoImagem))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTreino))
-                .addGap(32, 32, 32)
-                .addComponent(lblMensagemIcon)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(lblUserNome))
                 .addGap(18, 18, 18)
-                .addComponent(lblMensagem)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addComponent(lblData)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
-        JMenuTabNutric.setText("Tabela Nutricional    ");
-        jMenuBarCliente.add(JMenuTabNutric);
+        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
 
-        jMenuExercicio.setText("Exercícios   ");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel4.setText("Menu");
 
-        jMenuItemExercAnaer.setText("Aeróbico");
-        jMenuExercicio.add(jMenuItemExercAnaer);
-
-        jMenuItem2.setText("Anaeróbico");
-        jMenuExercicio.add(jMenuItem2);
-
-        jMenuBarCliente.add(jMenuExercicio);
-
-        jMenuGastoCaloria.setText("Gasto de Calorias   ");
-        jMenuBarCliente.add(jMenuGastoCaloria);
-
-        jMenuProgDieta.setText("Progresso da Dieta   ");
-        jMenuBarCliente.add(jMenuProgDieta);
-
-        jMenuProfissionais.setText("Profissionais   ");
-
-        jMenuItemEF.setText("Educador Físico");
-        jMenuProfissionais.add(jMenuItemEF);
-
-        jMenuItemNutricionista.setText("Nutricionista");
-        jMenuProfissionais.add(jMenuItemNutricionista);
-
-        jMenuBarCliente.add(jMenuProfissionais);
-
-        jMenuSair.setText("Sair");
-        jMenuSair.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblMenuPerfilCliente.setBackground(new java.awt.Color(255, 255, 255));
+        lblMenuPerfilCliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblMenuPerfilCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/user.png"))); // NOI18N
+        lblMenuPerfilCliente.setText("     Perfil");
+        lblMenuPerfilCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblMenuPerfilCliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuSairMouseClicked(evt);
+                lblMenuPerfilClienteMouseClicked(evt);
             }
         });
-        jMenuBarCliente.add(jMenuSair);
 
-        setJMenuBar(jMenuBarCliente);
+        lblMenuDietaCliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblMenuDietaCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/prato.png"))); // NOI18N
+        lblMenuDietaCliente.setText("     Dieta");
+        lblMenuDietaCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblMenuDietaCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMenuDietaClienteMouseClicked(evt);
+            }
+        });
+
+        lblMenuTreinoCliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblMenuTreinoCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/treino.png"))); // NOI18N
+        lblMenuTreinoCliente.setText("     Treino");
+        lblMenuTreinoCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblMenuTreinoCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMenuTreinoClienteMouseClicked(evt);
+            }
+        });
+
+        lblMenuMensagemCliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblMenuMensagemCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/msg.png"))); // NOI18N
+        lblMenuMensagemCliente.setText("    Mensagens");
+        lblMenuMensagemCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblMenuMensagemCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMenuMensagemClienteMouseClicked(evt);
+            }
+        });
+
+        lblMenuRelatorioCliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblMenuRelatorioCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/relatorio1.png"))); // NOI18N
+        lblMenuRelatorioCliente.setText("     Relatório");
+        lblMenuRelatorioCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        lblSair.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/sair.png"))); // NOI18N
+        lblSair.setText("     Sair");
+        lblSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSairMouseClicked(evt);
+            }
+        });
+
+        lblMenuAliementoCliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblMenuAliementoCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/alimento.png"))); // NOI18N
+        lblMenuAliementoCliente.setText("     Alimentos");
+        lblMenuAliementoCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblMenuAliementoCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMenuAliementoClienteMouseClicked(evt);
+            }
+        });
+
+        lblMenuProCliente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblMenuProCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/profissionais.png"))); // NOI18N
+        lblMenuProCliente.setText("     Profissionais");
+        lblMenuProCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblMenuProCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMenuProClienteMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblMenuDietaCliente)
+                    .addComponent(lblMenuPerfilCliente)
+                    .addComponent(lblMenuTreinoCliente)
+                    .addComponent(lblMenuProCliente)
+                    .addComponent(lblMenuRelatorioCliente)
+                    .addComponent(lblSair)
+                    .addComponent(lblMenuMensagemCliente)
+                    .addComponent(lblMenuAliementoCliente))
+                .addContainerGap(67, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(76, 76, 76))
+        );
+
+        jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblMenuAliementoCliente, lblMenuDietaCliente, lblMenuMensagemCliente, lblMenuPerfilCliente, lblMenuProCliente, lblMenuRelatorioCliente, lblMenuTreinoCliente, lblSair});
+
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addGap(2, 2, 2)
+                .addComponent(lblMenuPerfilCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblMenuDietaCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblMenuTreinoCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblMenuAliementoCliente)
+                .addGap(18, 18, 18)
+                .addComponent(lblMenuMensagemCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblMenuProCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblMenuRelatorioCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblSair)
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+
+        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblMenuAliementoCliente, lblMenuDietaCliente, lblMenuMensagemCliente, lblMenuPerfilCliente, lblMenuProCliente, lblMenuRelatorioCliente, lblMenuTreinoCliente, lblSair});
+
+        jPanelAreaCliente.setBackground(new java.awt.Color(204, 204, 204));
+        jPanelAreaCliente.setPreferredSize(new java.awt.Dimension(702, 514));
+
+        javax.swing.GroupLayout jPanelAreaClienteLayout = new javax.swing.GroupLayout(jPanelAreaCliente);
+        jPanelAreaCliente.setLayout(jPanelAreaClienteLayout);
+        jPanelAreaClienteLayout.setHorizontalGroup(
+            jPanelAreaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 750, Short.MAX_VALUE)
+        );
+        jPanelAreaClienteLayout.setVerticalGroup(
+            jPanelAreaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 513, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelAreaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelAreaCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jDesktopPaneCliente)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPaneCliente)
-            .addComponent(jPanelCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(752, 458));
+        setSize(new java.awt.Dimension(1009, 689));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSairMouseClicked
-        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?", "Atenção", JOptionPane.YES_NO_OPTION);
-        if(sair == JOptionPane.YES_OPTION){
-            System.exit(0);
-        }
-    }//GEN-LAST:event_jMenuSairMouseClicked
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        //traz a data do sistema
+        Date data = new Date();
+        DateFormat formatado = DateFormat.getDateInstance(DateFormat.FULL);
+        lblData.setText(formatado.format(data));
+        
+    }//GEN-LAST:event_formWindowActivated
 
-    private void jPanelClienteInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jPanelClienteInputMethodTextChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanelClienteInputMethodTextChanged
+    private void lblSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseClicked
+        int sair = JOptionPane.showConfirmDialog(null, "Deseja sair?", "Atenção", JOptionPane.YES_NO_OPTION);
+        if(sair == JOptionPane.YES_OPTION){
+           System.exit(0);
+        }
+    }//GEN-LAST:event_lblSairMouseClicked
+
+    private void lblMenuPerfilClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMenuPerfilClienteMouseClicked
+        // vai abrir a tela cliente PERFIl dentro da TelaPrincipalCliente
+        TelaClientePerfil perfilCliente = new TelaClientePerfil();
+        perfilCliente.setVisible(true);
+        jPanelAreaCliente.add(perfilCliente);
+        
+        //ao clicar no botao perfil os dados que o cliente cadastrou vai ser mostrado no tela de Perfil
+        //tazer conexao com o bd (ok)
+        //(((((PROBLEMA)))) SÓ exibe o msm dado sempre
+         
+          String sql = "select * from Cliente";
+          try{
+              pst = conexao.prepareStatement(sql);
+              //pst.setString(1, txtIdCliente.getText());
+              rs = pst.executeQuery();
+              // rs.last() pega a ultima linha que foi colocada no bd, entao vai ter que fazer cadastro e login
+              //para mostrar essas duas funcionalidades e pegar o ultimo que foi cadastrado
+              if(rs.last()){
+                  txtIdCliente.setText(rs.getString(1));
+                  txtNomeCliente.setText(rs.getString(2));
+                  txtEmailCliente.setText(rs.getString(3));
+                  jpfSenhaCliente.setText(rs.getString(4));
+                  txtSobrenomeCliente.setText(rs.getString(5));
+                  ftxtDataCliente.setText(rs.getString(6));
+                  ftxCPFCliente.setText(rs.getString(7));
+                  jtxTelefoneCliente.setText(rs.getString(8));
+              } 
+          }catch(Exception e){
+              JOptionPane.showMessageDialog(null, e);
+              e.printStackTrace();
+          }
+          
+          
+          
+        
+        
+    }//GEN-LAST:event_lblMenuPerfilClienteMouseClicked
+
+    private void lblMenuProClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMenuProClienteMouseClicked
+       // vai abrir a tela cliente PROFISSIONAIS dentro da TelaPrincipalCliente
+        TelaClienteProfissional profissionalCliente = new TelaClienteProfissional();
+        profissionalCliente.setVisible(true);
+        jPanelAreaCliente.add(profissionalCliente);
+    }//GEN-LAST:event_lblMenuProClienteMouseClicked
+
+    private void lblMenuDietaClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMenuDietaClienteMouseClicked
+        // vai abrir a tela de DIETA dentro da TelaPrincipalCliente
+        TelaClienteDieta dietaCliente = new TelaClienteDieta();
+        dietaCliente.setVisible(true);
+        jPanelAreaCliente.add(dietaCliente);
+    }//GEN-LAST:event_lblMenuDietaClienteMouseClicked
+
+    private void lblMenuTreinoClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMenuTreinoClienteMouseClicked
+         // vai abrir a tela de Treino dentro da TelaPrincipalCliente
+        TelaClienteTreino treinoCliente = new TelaClienteTreino();
+        treinoCliente.setVisible(true);
+        jPanelAreaCliente.add(treinoCliente);
+    }//GEN-LAST:event_lblMenuTreinoClienteMouseClicked
+
+    private void lblMenuAliementoClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMenuAliementoClienteMouseClicked
+         // vai abrir a tela de Alimentoo dentro da TelaPrincipalCliente
+       TelaClienteAlimentos alimentosCliente = new TelaClienteAlimentos();
+       alimentosCliente.setVisible(true);
+       jPanelAreaCliente.add(alimentosCliente);
+    }//GEN-LAST:event_lblMenuAliementoClienteMouseClicked
+
+    private void lblMenuMensagemClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMenuMensagemClienteMouseClicked
+         // vai abrir a tela de Mensagem dentro da TelaPrincipalCliente
+       TelaClienteMensagem mensagemCliente = new TelaClienteMensagem();
+       mensagemCliente.setVisible(true);
+       jPanelAreaCliente.add(mensagemCliente);
+    }//GEN-LAST:event_lblMenuMensagemClienteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -272,30 +407,21 @@ public class TelaPrincipalCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu JMenuTabNutric;
-    private javax.swing.JDesktopPane jDesktopPaneCliente;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JMenuBar jMenuBarCliente;
-    private javax.swing.JMenu jMenuExercicio;
-    private javax.swing.JMenu jMenuGastoCaloria;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItemEF;
-    private javax.swing.JMenuItem jMenuItemExercAnaer;
-    private javax.swing.JMenuItem jMenuItemNutricionista;
-    private javax.swing.JMenu jMenuProfissionais;
-    private javax.swing.JMenu jMenuProgDieta;
-    private javax.swing.JMenu jMenuSair;
-    private javax.swing.JPanel jPanelCliente;
-    private javax.swing.JLabel lblIconUser;
-    private javax.swing.JLabel lblMensagem;
-    private javax.swing.JLabel lblMensagemIcon;
-    private javax.swing.JLabel lblTreino;
-    private javax.swing.JLabel lblTreinoImagem;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanelAreaCliente;
+    private javax.swing.JLabel lblData;
+    private javax.swing.JLabel lblMenuAliementoCliente;
+    private javax.swing.JLabel lblMenuDietaCliente;
+    private javax.swing.JLabel lblMenuMensagemCliente;
+    private javax.swing.JLabel lblMenuPerfilCliente;
+    private javax.swing.JLabel lblMenuProCliente;
+    private javax.swing.JLabel lblMenuRelatorioCliente;
+    private javax.swing.JLabel lblMenuTreinoCliente;
+    private javax.swing.JLabel lblSair;
     public static javax.swing.JLabel lblUserNome;
-    public static javax.swing.JLabel lblUserNome1;
     // End of variables declaration//GEN-END:variables
 }

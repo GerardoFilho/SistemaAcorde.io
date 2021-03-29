@@ -5,6 +5,13 @@
  */
 package br.com.acorde.view;
 
+import static br.com.acorde.view.TelaNutricionistaPerfil.*;
+import br.com.acorde.dao.ModuloConexao;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,11 +20,16 @@ import javax.swing.JOptionPane;
  */
 public class TelaPrincipalNutricionista extends javax.swing.JFrame {
 
+     //variaveis do BD
+    Connection conexao = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
     /**
      * Creates new form TelaPrincipalNutricionista
      */
     public TelaPrincipalNutricionista() {
         initComponents();
+        conexao = ModuloConexao.conexaoBanco();
     }
 
     /**
@@ -29,49 +41,42 @@ public class TelaPrincipalNutricionista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        lblNomeNutric = new javax.swing.JLabel();
-        lblIconUser = new javax.swing.JLabel();
-        lblIconMsg = new javax.swing.JLabel();
-        lblMsg = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        lblNomeNutric = new javax.swing.JLabel();
+        lblData = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanelTelaNutricionista = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        lblNomeNutric1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenuTabelaNutricional = new javax.swing.JMenu();
-        jMenuDieta = new javax.swing.JMenu();
-        jMenuItemDietacadastrar = new javax.swing.JMenuItem();
-        jMenuItemDietaConsultar = new javax.swing.JMenuItem();
-        jMenuItemDietaExcluir = new javax.swing.JMenuItem();
-        jMenuAlimento = new javax.swing.JMenu();
-        jMenuItemAlimentoCad = new javax.swing.JMenuItem();
-        jMenuItemAlimentoConsul = new javax.swing.JMenuItem();
-        jMenuSair = new javax.swing.JMenu();
+        lblMenuPerfilNutri = new javax.swing.JLabel();
+        lblMenuDietalNutri = new javax.swing.JLabel();
+        lblMenuAlimentoNutri = new javax.swing.JLabel();
+        lblMenuMSGlNutri = new javax.swing.JLabel();
+        lblSair = new javax.swing.JLabel();
+        jPanelAreaNutricionista = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(717, 400));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblNomeNutric.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1000, 131));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 131));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("Seja bem vindo(a) ao <Acorde!>, ");
+
+        lblNomeNutric.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblNomeNutric.setText("Nome");
 
-        lblIconUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/user.png"))); // NOI18N
-
-        lblIconMsg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/msg.png"))); // NOI18N
-
-        lblMsg.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblMsg.setText("Mensagem");
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/alimento.png"))); // NOI18N
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("Alimentos");
+        lblData.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblData.setText("Terça, 23 de Março de 2021");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -80,151 +85,245 @@ public class TelaPrincipalNutricionista extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblIconUser)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblNomeNutric, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblIconMsg)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1))
-                                .addGap(21, 21, 21))))
+                        .addGap(229, 229, 229)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblNomeNutric))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblMsg)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addGap(296, 296, 296)
+                        .addComponent(lblData, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(285, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblIconUser)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(lblNomeNutric)))
-                .addGap(49, 49, 49)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblIconMsg)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblMsg)
-                    .addComponent(jLabel2))
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(lblNomeNutric))
+                .addGap(18, 18, 18)
+                .addComponent(lblData)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
-        jPanelTelaNutricionista.setPreferredSize(new java.awt.Dimension(506, 306));
-        jPanelTelaNutricionista.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel3.setMinimumSize(new java.awt.Dimension(237, 513));
+        jPanel3.setPreferredSize(new java.awt.Dimension(237, 513));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel3.setText("Seja bem vindo(a),");
-        jPanelTelaNutricionista.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 220, 30));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setText("Menu");
 
-        lblNomeNutric1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lblNomeNutric1.setText("Nome");
-        jPanelTelaNutricionista.add(lblNomeNutric1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText(" 22 de Março de 2021");
-        jPanelTelaNutricionista.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 150, 20));
-
-        jMenuTabelaNutricional.setText("Tabela Nutricional   ");
-        jMenuBar1.add(jMenuTabelaNutricional);
-
-        jMenuDieta.setText("Dieta   ");
-
-        jMenuItemDietacadastrar.setText("Cadastrar");
-        jMenuItemDietacadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemDietacadastrarActionPerformed(evt);
-            }
-        });
-        jMenuDieta.add(jMenuItemDietacadastrar);
-
-        jMenuItemDietaConsultar.setText("Consultar");
-        jMenuDieta.add(jMenuItemDietaConsultar);
-
-        jMenuItemDietaExcluir.setText("Excluir");
-        jMenuDieta.add(jMenuItemDietaExcluir);
-
-        jMenuBar1.add(jMenuDieta);
-
-        jMenuAlimento.setText("Alimentos   ");
-
-        jMenuItemAlimentoCad.setText("Cadastrar");
-        jMenuItemAlimentoCad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemAlimentoCadActionPerformed(evt);
-            }
-        });
-        jMenuAlimento.add(jMenuItemAlimentoCad);
-
-        jMenuItemAlimentoConsul.setText("Consultar");
-        jMenuItemAlimentoConsul.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemAlimentoConsulActionPerformed(evt);
-            }
-        });
-        jMenuAlimento.add(jMenuItemAlimentoConsul);
-
-        jMenuBar1.add(jMenuAlimento);
-
-        jMenuSair.setText("Sair");
-        jMenuSair.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblMenuPerfilNutri.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblMenuPerfilNutri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/user.png"))); // NOI18N
+        lblMenuPerfilNutri.setText("     Perfil");
+        lblMenuPerfilNutri.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblMenuPerfilNutri.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuSairMouseClicked(evt);
+                lblMenuPerfilNutriMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenuSair);
 
-        setJMenuBar(jMenuBar1);
+        lblMenuDietalNutri.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblMenuDietalNutri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/prato.png"))); // NOI18N
+        lblMenuDietalNutri.setText("    Dieta");
+        lblMenuDietalNutri.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblMenuDietalNutri.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMenuDietalNutriMouseClicked(evt);
+            }
+        });
+
+        lblMenuAlimentoNutri.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblMenuAlimentoNutri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/alimento.png"))); // NOI18N
+        lblMenuAlimentoNutri.setText("    Alimento");
+        lblMenuAlimentoNutri.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblMenuAlimentoNutri.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMenuAlimentoNutriMouseClicked(evt);
+            }
+        });
+
+        lblMenuMSGlNutri.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblMenuMSGlNutri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/msg.png"))); // NOI18N
+        lblMenuMSGlNutri.setText("    Mensagem");
+        lblMenuMSGlNutri.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblMenuMSGlNutri.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMenuMSGlNutriMouseClicked(evt);
+            }
+        });
+
+        lblSair.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/acorde/imagens/sair.png"))); // NOI18N
+        lblSair.setText("    Sair");
+        lblSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSairMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblMenuPerfilNutri))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblMenuDietalNutri))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblMenuAlimentoNutri))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblMenuMSGlNutri))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblSair)))
+                .addContainerGap(84, Short.MAX_VALUE))
+        );
+
+        jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblMenuAlimentoNutri, lblMenuDietalNutri, lblMenuMSGlNutri, lblMenuPerfilNutri, lblSair});
+
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(lblMenuPerfilNutri)
+                .addGap(18, 18, 18)
+                .addComponent(lblMenuDietalNutri)
+                .addGap(18, 18, 18)
+                .addComponent(lblMenuAlimentoNutri)
+                .addGap(18, 18, 18)
+                .addComponent(lblMenuMSGlNutri)
+                .addGap(18, 18, 18)
+                .addComponent(lblSair)
+                .addContainerGap(143, Short.MAX_VALUE))
+        );
+
+        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblMenuAlimentoNutri, lblMenuDietalNutri, lblMenuMSGlNutri, lblMenuPerfilNutri, lblSair});
+
+        jPanelAreaNutricionista.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout jPanelAreaNutricionistaLayout = new javax.swing.GroupLayout(jPanelAreaNutricionista);
+        jPanelAreaNutricionista.setLayout(jPanelAreaNutricionistaLayout);
+        jPanelAreaNutricionistaLayout.setHorizontalGroup(
+            jPanelAreaNutricionistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanelAreaNutricionistaLayout.setVerticalGroup(
+            jPanelAreaNutricionistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelAreaNutricionista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelAreaNutricionista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelTelaNutricionista, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelTelaNutricionista, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(733, 429));
+        setSize(new java.awt.Dimension(1016, 689));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItemDietacadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDietacadastrarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemDietacadastrarActionPerformed
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+         //traz a data do sistema
+        Date data = new Date();
+        DateFormat formatado = DateFormat.getDateInstance(DateFormat.FULL);
+        lblData.setText(formatado.format(data));
+    }//GEN-LAST:event_formWindowActivated
 
-    private void jMenuItemAlimentoCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAlimentoCadActionPerformed
-        TelaCadastroAlimento telaCadastroAlimento = new  TelaCadastroAlimento();
-        telaCadastroAlimento.setVisible(true);
-       jPanelTelaNutricionista.add(telaCadastroAlimento);
-    }//GEN-LAST:event_jMenuItemAlimentoCadActionPerformed
-
-    private void jMenuItemAlimentoConsulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAlimentoConsulActionPerformed
-        TelaConsultaAlimento telaConsultaAlimento = new  TelaConsultaAlimento();
-        telaConsultaAlimento.setVisible(true);
-       jPanelTelaNutricionista.add(telaConsultaAlimento);
-    }//GEN-LAST:event_jMenuItemAlimentoConsulActionPerformed
-
-    private void jMenuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSairMouseClicked
-       int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?", "Atenção", JOptionPane.YES_NO_OPTION);
+    private void lblSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseClicked
+        int sair = JOptionPane.showConfirmDialog(null, "Deseja sair?", "Atenção", JOptionPane.YES_NO_OPTION);
         if(sair == JOptionPane.YES_OPTION){
-            System.exit(0);
+           System.exit(0);
         }
-    }//GEN-LAST:event_jMenuSairMouseClicked
+    }//GEN-LAST:event_lblSairMouseClicked
+
+    private void lblMenuPerfilNutriMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMenuPerfilNutriMouseClicked
+         // vai abrir a tela cliente PERFIl dentro da TelaPrincipalNutricionista
+        TelaNutricionistaPerfil perfilNutricionista = new TelaNutricionistaPerfil();
+        perfilNutricionista.setVisible(true);
+        jPanelAreaNutricionista.add(perfilNutricionista);
+        
+        
+         String sql = "select * from Nutricionista";
+          try{
+              pst = conexao.prepareStatement(sql);
+              //pst.setString(1, txtIdCliente.getText());
+              rs = pst.executeQuery();
+              // rs.last() pega a ultima linha que foi colocada no bd, entao vai ter que fazer cadastro e login
+              //para mostrar essas duas funcionalidades e pegar o ultimo que foi cadastrado
+              if(rs.last()){
+                  txtIdNutri.setText(rs.getString(1));
+                  txtNomeNutri.setText(rs.getString(2));
+                  txtEmailNutri.setText(rs.getString(3));
+                  jpfSenhaNutri.setText(rs.getString(4));
+                  txtSobrenomeNutri.setText(rs.getString(5));
+                  ftxtDataNutri.setText(rs.getString(6));
+                  ftxCRNNutri.setText(rs.getString(7));
+                  jtxTelefoneNutri.setText(rs.getString(8));
+              } 
+          }catch(Exception e){
+              JOptionPane.showMessageDialog(null, e);
+              e.printStackTrace();
+          }
+    }//GEN-LAST:event_lblMenuPerfilNutriMouseClicked
+
+    private void lblMenuDietalNutriMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMenuDietalNutriMouseClicked
+        // vai abrir a tela cliente DIETA dentro da TelaPrincipalNutricionista
+        TelaNutricionistaDieta dietaNutricionista = new TelaNutricionistaDieta();
+        dietaNutricionista.setVisible(true);
+        jPanelAreaNutricionista.add(dietaNutricionista);
+    }//GEN-LAST:event_lblMenuDietalNutriMouseClicked
+
+    private void lblMenuAlimentoNutriMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMenuAlimentoNutriMouseClicked
+        // vai abrir a tela cliente ALIMENTO dentro da TelaPrincipalNutricionista
+        TelaNutricionistaAlimento alimentoNutricionista = new TelaNutricionistaAlimento();
+        alimentoNutricionista.setVisible(true);
+        jPanelAreaNutricionista.add(alimentoNutricionista);
+    }//GEN-LAST:event_lblMenuAlimentoNutriMouseClicked
+
+    private void lblMenuMSGlNutriMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMenuMSGlNutriMouseClicked
+          // vai abrir a tela cliente MENSAGEM dentro da TelaPrincipalNutricionista
+        TelaNutricionistaMensagem msgNutricionista = new TelaNutricionistaMensagem();
+        msgNutricionista.setVisible(true);
+        jPanelAreaNutricionista.add(msgNutricionista);
+    }//GEN-LAST:event_lblMenuMSGlNutriMouseClicked
 
     /**
      * @param args the command line arguments
@@ -256,32 +355,24 @@ public class TelaPrincipalNutricionista extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaPrincipalNutricionista().setVisible(true);
+            new TelaPrincipalNutricionista().setVisible(true);
             }
         });
-    }
+    }    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JMenu jMenuAlimento;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenu jMenuDieta;
-    private javax.swing.JMenuItem jMenuItemAlimentoCad;
-    private javax.swing.JMenuItem jMenuItemAlimentoConsul;
-    private javax.swing.JMenuItem jMenuItemDietaConsultar;
-    private javax.swing.JMenuItem jMenuItemDietaExcluir;
-    private javax.swing.JMenuItem jMenuItemDietacadastrar;
-    private javax.swing.JMenu jMenuSair;
-    private javax.swing.JMenu jMenuTabelaNutricional;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanelTelaNutricionista;
-    private javax.swing.JLabel lblIconMsg;
-    private javax.swing.JLabel lblIconUser;
-    private javax.swing.JLabel lblMsg;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanelAreaNutricionista;
+    private javax.swing.JLabel lblData;
+    private javax.swing.JLabel lblMenuAlimentoNutri;
+    private javax.swing.JLabel lblMenuDietalNutri;
+    private javax.swing.JLabel lblMenuMSGlNutri;
+    private javax.swing.JLabel lblMenuPerfilNutri;
     public static javax.swing.JLabel lblNomeNutric;
-    public static javax.swing.JLabel lblNomeNutric1;
+    private javax.swing.JLabel lblSair;
     // End of variables declaration//GEN-END:variables
 }

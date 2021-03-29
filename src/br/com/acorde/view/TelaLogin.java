@@ -1,24 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.com.acorde.view;
 
-import java.sql.*;
 import br.com.acorde.dao.ModuloConexao;
-import javax.swing.JComboBox;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+
+
 public class TelaLogin extends javax.swing.JFrame {
-    
+
+    //variaveis do BD
     Connection conexao = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
-    
-
-    /**
-     * Creates new form TelaLogin
-     */
     
     public void logar(){
       
@@ -28,7 +27,7 @@ public class TelaLogin extends javax.swing.JFrame {
              String sql = "select * from cliente where email = ? and senha = ?";
              try{
                 pst = conexao.prepareStatement(sql);
-                pst.setString(1, tfNomeLogin.getText());
+                pst.setString(1, tfEmailLogin.getText());
                 pst.setString(2, pfSenhaLogin.getText());
                 //eecutando a query
                 rs = pst.executeQuery();
@@ -42,12 +41,19 @@ public class TelaLogin extends javax.swing.JFrame {
                 }
              }catch(Exception e){
                  JOptionPane.showMessageDialog(null, e);
+                  e.printStackTrace();
+             }finally{
+                 try {
+                     conexao.close();
+                 } catch (SQLException ex) {
+                     Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+                 }
              }
         }else if(cbPerfilLogin.getSelectedItem().equals("Educador Físico")){
             String sql = "select * from educador_fisico where email = ? and senha = ?";
             try{
                 pst = conexao.prepareStatement(sql);
-                pst.setString(1, tfNomeLogin.getText());
+                pst.setString(1, tfEmailLogin.getText());
                 pst.setString(2, pfSenhaLogin.getText());
                 //eecutando a query
                 rs = pst.executeQuery();
@@ -62,12 +68,19 @@ public class TelaLogin extends javax.swing.JFrame {
              }catch(Exception e){
                  JOptionPane.showMessageDialog(null, e);
                  e.printStackTrace();
-             }
+             }finally{
+                try {
+                    conexao.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
         }else{
             String sql = "select * from nutricionista where email = ? and senha = ?";
             try{
                 pst = conexao.prepareStatement(sql);
-                pst.setString(1, tfNomeLogin.getText());
+                pst.setString(1, tfEmailLogin.getText());
                 pst.setString(2, pfSenhaLogin.getText());
                 //eecutando a query
                 rs = pst.executeQuery();
@@ -81,17 +94,23 @@ public class TelaLogin extends javax.swing.JFrame {
                 }
              }catch(Exception e){
                  JOptionPane.showMessageDialog(null, e);
-             }
+                  e.printStackTrace();
+             }finally{
+                try {
+                    conexao.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
         //fecha a tela de login
         dispose();
-      
     }
+    
+    //Creates new form TelaLogin
     public TelaLogin() {
         initComponents();
         conexao = ModuloConexao.conexaoBanco();
-        //verifica se conectou com o bd 
-        //System.out.println(conexao);
     }
 
     /**
@@ -103,99 +122,116 @@ public class TelaLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblAcorde = new javax.swing.JLabel();
-        lblNomeLogin = new javax.swing.JLabel();
-        lblSenhaLogin = new javax.swing.JLabel();
-        cbPerfilLogin = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        pfSenhaLogin = new javax.swing.JPasswordField();
-        tfNomeLogin = new javax.swing.JTextField();
-        btnLogin = new javax.swing.JButton();
-        btnCadastraLogin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        tfEmailLogin = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        pfSenhaLogin = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
+        cbPerfilLogin = new javax.swing.JComboBox<>();
+        btnLogin = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Login <Acorde>");
-        setBackground(new java.awt.Color(255, 0, 0));
+        setTitle("Cadastre no <Acorde!>");
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblAcorde.setFont(new java.awt.Font("MV Boli", 1, 24)); // NOI18N
-        lblAcorde.setText("<Acorde>");
-        getContentPane().add(lblAcorde, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 12, -1, -1));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblNomeLogin.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblNomeLogin.setText("EMAIL:");
-        getContentPane().add(lblNomeLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 86, 46, -1));
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 
-        lblSenhaLogin.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblSenhaLogin.setText("SENHA:");
-        getContentPane().add(lblSenhaLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 125, 46, -1));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jLabel4.setText("<Acorde!>");
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, -1));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("Email:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 129, -1, -1));
+
+        tfEmailLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tfEmailLogin.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
+        jPanel1.add(tfEmailLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 152, 222, -1));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("Senha:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 188, -1, -1));
+
+        pfSenhaLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        pfSenhaLogin.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(153, 153, 153)));
+        jPanel1.add(pfSenhaLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 211, 222, -1));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Perfil:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 247, -1, -1));
+
+        cbPerfilLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbPerfilLogin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente", "Educador Físico", "Nutricionista" }));
-        getContentPane().add(cbPerfilLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 164, 141, 31));
+        jPanel1.add(cbPerfilLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 222, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel4.setText("PERFIL:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 172, 46, -1));
-
-        pfSenhaLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pfSenhaLoginActionPerformed(evt);
-            }
-        });
-        getContentPane().add(pfSenhaLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 118, 141, 28));
-
-        tfNomeLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfNomeLoginActionPerformed(evt);
-            }
-        });
-        getContentPane().add(tfNomeLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 70, 140, 30));
-
-        btnLogin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnLogin.setText("Login");
+        btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 108, 34));
+        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 329, 91, -1));
 
-        btnCadastraLogin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnCadastraLogin.setText("Cadastre-se");
-        btnCadastraLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastraLoginActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnCadastraLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 108, 35));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton2.setText("Cancelar");
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 329, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("Não é cliente ainda? Clique no botão ao lado");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 275, -1, -1));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText("É novo por aqui?");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 391, -1, -1));
 
-        setSize(new java.awt.Dimension(446, 370));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setText("Cadastre-se");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, -1, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
+        );
+
+        setSize(new java.awt.Dimension(418, 492));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfNomeLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeLoginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfNomeLoginActionPerformed
-
-    private void pfSenhaLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfSenhaLoginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pfSenhaLoginActionPerformed
-
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // chamando o metodo logar;
         logar();
     }//GEN-LAST:event_btnLoginActionPerformed
-
-    private void btnCadastraLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastraLoginActionPerformed
-       TelaCadastro.main(null);
-       dispose();
-    }//GEN-LAST:event_btnCadastraLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,15 +269,18 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadastraLogin;
     private javax.swing.JButton btnLogin;
     private javax.swing.JComboBox<String> cbPerfilLogin;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel lblAcorde;
-    private javax.swing.JLabel lblNomeLogin;
-    private javax.swing.JLabel lblSenhaLogin;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField pfSenhaLogin;
-    private javax.swing.JTextField tfNomeLogin;
+    private javax.swing.JTextField tfEmailLogin;
     // End of variables declaration//GEN-END:variables
 }
