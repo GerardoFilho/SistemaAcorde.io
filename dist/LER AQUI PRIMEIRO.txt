@@ -1,0 +1,7 @@
+Está no backup do BD apenas a estrutura,
+os dados não estão, sendo assim, para
+acessar o sistema, faça:
+ - na tela de login, clique em cadastra-se
+   preencha os campos e para fazer o login
+   use o email e a senha cadastrada. 
+ - Faça o msm para nutricionista e Ed. físico.
